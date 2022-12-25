@@ -1,0 +1,10 @@
+digraph _logic_validLoginsProp {
+rankdir=LR;
+node [shape = circle]; LOGGEDIN LOGGEDOUT;
+node [shape = point]; _s_s;
+_s_s -> LOGGEDOUT;
+LOGGEDOUT -> LOGGEDOUT [ label = "(1) invalidLogin\\invalidLogins < 2 \\invalidLogins ++ ; System . out . println ( \" Invalid Login event. Invalid logins:  \" + invalidLogins ) ; "];
+LOGGEDOUT -> LOGGEDOUT [ label = "(2) inLoginScreen\\inLogin == true \\System . out . println ( \" Invalid Login. Back in login screen, try again! \" ) ; "];
+LOGGEDOUT -> LOGGEDIN [ label = "(3) validLogin\\\\invalidLogins = 0 ; System . out . println ( \" Valid Login event. Invalid logins:  \" + invalidLogins ) ; "];
+LOGGEDIN -> LOGGEDIN [ label = "(1) inAlertScreen\\inAlert == true \\System . out . println ( \" Valid Login. In Alert Screen! \" ) ; "];
+}

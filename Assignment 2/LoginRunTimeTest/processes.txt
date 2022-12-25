@@ -1,0 +1,109 @@
+AUTOMATON 1 - LOGGING IN
+Per cucumber Scenario: Valid Login
+    Given I am a user of marketalertum
+    When I login using valid credentials
+    Then I should see my alerts
+
+
+Per cucumber Scenario: Invalid Login
+      Given I am a user of marketalertum
+      When I login using invalid credentials
+      Then I should see the login screen again
+
+The objective is to create a driver to interact with public methods.
+1. Create a list of states and transitions
+2. Create a list of state variables I need to track
+
+States (Enums):
+- LOGGEDOUT         ** starting state
+- LOGGEDIN
+
+Variables:
+The only variables are logging variables and its corresponding screen output in boolean. This means that the user can only be in one state at a time (logged in or out/ true or false) and see one screen a time (login screen or alerts screen/ true or false).
+
+- validLogin    (bool)
+- loginScreen   (bool)
+- alertsScreen  (bool)
+
+Transitions:
+loggedOut -> loggedIn \ validLoggingIn \ validLogin = true;
+LoggedIn ->loggedIn \ inAlertScreen \ alertScreen = true; loginScreen = false;
+loggedOut -> loggedOut \ invalidLoggingIn \ validLogin = false
+loggedOut -> loggedOut \ inLoginScreen \ loginScreen = true; alertScreen = false;
+
+AUTOMATON 2: ALERT LAYOUT
+Per cucumber Scenario: Alert Layout
+        Given I am an administrator of the website and I upload 3 alerts
+        Given I am a user of marketalertum that is logged in
+        When I view a list of alerts
+        Then each alert should contain an icon
+        And each alert should contain a heading
+        And each alert should contain a description
+        And each alert should contain an image
+        And each alert should contain a price
+        And each alert should contain a link to the original product website
+
+States (Enums):
+- LOGIN             ** starting state
+- CREATEALERT
+- VIEWALERT
+- VALIDATEALERTLAYOUT
+
+Variables:
+- validLogin        //Assuming that the user and admin have the same userID
+- alertCreated
+- alertViewed
+- validAlertLayout
+
+Transitions:
+logIn -> createAlert \ validCreatingAlert \ validLogin = true; alertCreated = true;
+logIn -> viewAlert \ validViewingAlert \ validLogin = true; alertViewed = true;
+viewAlert -> validateAlertLayout \ validAlertLayout \ validLogin = true; alertViewed = true; validLayout = true;
+
+AUTOMATON 3: MAXIMUM ALERTS LIMIT IS 5
+Per cucumber Scenario: Alert limit
+           Given I am an administrator of the website and I upload more than 5 alerts
+           Given I am a user of marketalertum that is logged in
+           When I view a list of alerts
+           Then I should see 5 alerts
+
+States (Enums):
+- LOGIN             ** starting state
+- CREATEALERT
+- VIEWALERT
+- VALIDATELIMIT
+
+Variables:
+- validLogin        //Assuming that the user and admin have the same userID
+- alertCreated
+- alertViewed
+- validAlertLimit
+
+Transitions:
+LOGIN -> CREATEALERT \ adminCreateFiveAlerts \ validLogin = true; alertCreated = true;
+LOGIN -> VIEWALERT \ userViewAlerts \ validLogin = true; alertViewed = true;
+VIEWALERTS -> VIEWALERTS \ verifyNumberOfAlerts \ validLogin = true; alertViewed = true; validAlertLimit = true;
+
+AUTOMATON 4: CREATE ALERTS, DELETE ALL ALERTS AND CHECK SIZE OF MARKET
+
+There is no cucumber scenario for this automaton. This is an extra automaton made to verify the logic of the
+automaton as well as,the validity of the code made to test such a scenario. Essentially, this automaton will
+allow admin to delete existing alerts in the market, create new alerts (maximum is always 5 as per assignment 1),
+verify that its size is now 5, delete these alerts and check that the size decreased back to zero. This is depicted
+more clearly in the Deterministic Finite State Automaton (DFSA).
+
+States (Enums):
+- LOGIN             ** starting state
+- CREATEALERT
+- DELETEALLALERTS
+
+Variables:
+- validLogin        //Assuming that the user and admin have the same userID
+- alertCreated
+- allAlertsDeleted
+- validMarketSize
+
+Transitions:
+LOGIN -> DELETEALLALERTS \ validLogin = true; allalertsDeleted = true; validMarketSize = true;
+LOGIN -> CREATEALERT \ validLogin = true; alertCreated = true; validMarketSize = true;
+CREATEALERT -> DELETEALLALERTS \ validLogin = true; allalertsDeleted = true; validMarketSize = true;

@@ -1,0 +1,45 @@
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDOUT
+Invalid Login event. Invalid logins: 1
+[validLoginsProp]MOVED ON METHODCALL: void main.Runner.invalidLogin() TO STATE::> LOGGEDOUT
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDOUT
+Invalid Login event. Invalid logins: 2
+[validLoginsProp]MOVED ON METHODCALL: void main.Runner.invalidLogin() TO STATE::> LOGGEDOUT
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDOUT
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDOUT
+Invalid Login. Back in login screen, try again!
+[validLoginsProp]MOVED ON METHODCALL: void main.Runner.Account.setInLoginScreen(boolean) TO STATE::> LOGGEDOUT
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDOUT
+Invalid Login. Back in login screen, try again!
+[validLoginsProp]MOVED ON METHODCALL: void main.Runner.Account.setInLoginScreen(boolean) TO STATE::> LOGGEDOUT
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDOUT
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDOUT
+Valid Login event. Invalid logins: 0
+[validLoginsProp]MOVED ON METHODCALL: void main.Runner.validLogin() TO STATE::> LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+Valid Login. In Alert Screen!
+[validLoginsProp]MOVED ON METHODCALL: void main.Runner.Account.setInAlertScreen(boolean) TO STATE::> LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+Valid Login. In Alert Screen!
+[validLoginsProp]MOVED ON METHODCALL: void main.Runner.Account.setInAlertScreen(boolean) TO STATE::> LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+Valid Login. In Alert Screen!
+[validLoginsProp]MOVED ON METHODCALL: void main.Runner.Account.setInAlertScreen(boolean) TO STATE::> LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+Valid Login. In Alert Screen!
+[validLoginsProp]MOVED ON METHODCALL: void main.Runner.Account.setInAlertScreen(boolean) TO STATE::> LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+Valid Login. In Alert Screen!
+[validLoginsProp]MOVED ON METHODCALL: void main.Runner.Account.setInAlertScreen(boolean) TO STATE::> LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN
+[validLoginsProp]AUTOMATON::> validLoginsProp() STATE::>LOGGEDIN

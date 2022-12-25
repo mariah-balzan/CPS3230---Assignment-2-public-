@@ -1,0 +1,39 @@
+%% Always start with a global scope 
+GLOBAL {
+	%%Next, what variables do i need by looking at the FSM?
+	VARIABLES{
+	 int invalidLogins = 0;
+	 boolean alertScr = false;
+	 boolean loginScr  = false; 
+	 }
+	 
+	 %%Thirdly,what events do I need? These events need to map a method execution in the code 
+	  EVENTS{
+	  	invalidLogin() = {*.invalidLogin()}		%%* means you do not care about the scope
+	  	validLogin() = {*.validLogin()}
+	  	inLoginScreen(boolean inLogin) = {*.setInLoginScreen(inLogin)}
+	  	inAlertScreen(boolean inAlert) = {*.setInAlertScreen(inAlert)}
+	  }
+	  
+	  %%Properties
+	  PROPERTY validLoginsProp{
+	  	STATES{
+	  		%%IN ORDER
+	  		NORMAL{
+	  			LOGGEDIN
+	  		}
+	  		STARTING{
+	  			LOGGEDOUT
+	  		}
+	  	}
+	  	
+	  	%%Transitions are executed in the order they are defined
+	  	TRANSITIONS{
+	  		%%Contain start and end state and an event, condition, action
+	  		LOGGEDOUT -> LOGGEDOUT [invalidLogin\invalidLogins < 2\invalidLogins ++; System.out.println("Invalid Login event. Invalid logins: " + invalidLogins);]
+	  		LOGGEDOUT -> LOGGEDOUT[inLoginScreen\inLogin == true \System.out.println("Invalid Login. Back in login screen, try again!");]
+	  		LOGGEDOUT -> LOGGEDIN [validLogin\\invalidLogins = 0; System.out.println("Valid Login event. Invalid logins: " + invalidLogins);]
+	  		LOGGEDIN -> LOGGEDIN[inAlertScreen\inAlert == true \System.out.println("Valid Login. In Alert Screen!");]
+	  	}
+	  }
+}
